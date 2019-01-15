@@ -64,16 +64,15 @@ $(function() {
       Array.from(rssFeed.children).forEach((displayed) => {
         feedArr.push(displayed.innerText)
       });
-      loadFeed(1);
-      done()
+      loadFeed(1, done);
     });
 
-    it('should change the content when a new feed is loaded', (done) => {
+    it('should change the content when a new feed is loaded', () => {
       Array.from(rssFeed.children).forEach((displayed, i)=>{
         let content = displayed.innerText;
+        // console.log(content , feedArr[1], feedArr[0])
         expect(content === feedArr[i]).toBe(false);
       })
-      done()
     });
   });
 }())
